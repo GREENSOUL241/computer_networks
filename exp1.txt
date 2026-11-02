@@ -1,0 +1,11 @@
+1. ping	Is the network reachable? 
+   
+2.traceroute	Which path does data take?
+
+3.ifconfig	What is my network configuration? = ip addr = moder version
+
+4.netstat	What connections are active?
+
+5.arp -n	What is the MAC address for this IP?
+
+5.nslookup	What is the IP address of this domain?

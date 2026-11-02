@@ -1,0 +1,7 @@
+netstat -rn	View routing table
+route -n	View routing table
+ip route	View routing table
+
+sudo ip route add 10.10.10.0/24 via 172.29.112.1
+
+sudo ip route delete 10.10.10.0/24

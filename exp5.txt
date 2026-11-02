@@ -1,0 +1,11 @@
+| Show DNS packets | dns |
+| Show TCP packets | tcp |
+| Show UDP packets | udp |
+| Show HTTP packets | http |
+| Show HTTPS/TLS packets | tls |
+| Show TCP SYN packets | tcp.flags.syn == 1 |
+| Show TCP SYN-ACK packets | tcp.flags.syn == 1 && tcp.flags.ack == 1 |
+| Show TCP ACK packets | tcp.flags.ack == 1 |
+| Show TCP handshake-related packets | tcp.flags.syn == 1 || tcp.flags.ack == 1 |
+| Show ICMP packets | icmp |
+| Show ARP packets | arp |

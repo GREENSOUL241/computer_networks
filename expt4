@@ -1,0 +1,119 @@
+AIM:
+Configure and analyse Static Routing using Cisco Packet Tracer.
+
+STEP 1: CREATE TOPOLOGY
+Add:
+- 2 Routers
+- 2 Switches
+- 4 PCs
+
+Arrange:
+PC0, PC1 -> Switch0 -> Router0
+Router0 -> Router1
+Router1 -> Switch1 -> PC2, PC3
+
+STEP 3: CONFIGURE PC IP ADDRESSES
+
+PC0:
+IP Address: 192.168.1.2
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.1.1
+
+
+PC2:
+IP Address: 192.168.2.2
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.2.1
+
+
+STEP 4: CONFIGURE ROUTER0
+
+Open Router0 -> Config -> FastEthernet0/0
+
+IP Address: 192.168.1.1
+Subnet Mask: 255.255.255.0
+Port Status: ON
+
+STEP 5: CONFIGURE ROUTER1
+
+Open Router1 -> Config -> FastEthernet0/0
+
+IP Address: 192.168.2.1
+Subnet Mask: 255.255.255.0
+Port Status: ON
+
+STEP 6: CONFIGURE SERIAL CONNECTION
+
+Router0 -> Config -> Serial2/0
+
+IP Address: 10.10.0.2
+Subnet Mask: 255.0.0.0
+Clock Rate: 64000
+Port Status: ON
+
+Router1 -> Config -> Serial2/0
+
+IP Address: 10.10.0.3
+Subnet Mask: 255.0.0.0
+Clock Rate: Not Set
+Port Status: ON
+
+STEP 7: VERIFY INTERFACES
+
+On both routers, open CLI and enter:
+
+enable
+show ip interface brief
+
+Check that FastEthernet0/0 and Serial2/0
+show UP/UP.
+
+If an interface is administratively down:
+
+configure terminal
+interface fastEthernet 0/0
+no shutdown
+exit
+end
+
+STEP 8: CONFIGURE STATIC ROUTING ON ROUTER0
+
+Open Router0 -> CLI:
+
+enable
+configure terminal
+ip route 192.168.2.0 255.255.255.0 10.10.0.3
+end
+
+STEP 9: CONFIGURE STATIC ROUTING ON ROUTER1
+
+Open Router1 -> CLI:
+
+enable
+configure terminal
+ip route 192.168.1.0 255.255.255.0 10.10.0.2
+end
+
+STEP 10: VERIFY ROUTING TABLE
+
+On both routers, enter:
+
+show ip route
+
+Look for routes marked with S.
+
+Router0:
+S 192.168.2.0/24 via 10.10.0.3
+
+Router1:
+S 192.168.1.0/24 via 10.10.0.2
+
+S = Static Route
+
+STEP 11: TEST CONNECTIVITY
+
+Open PC0 -> Desktop -> Command Prompt.
+
+Enter:
+
+ping 192.168.2.2

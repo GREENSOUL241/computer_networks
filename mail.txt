@@ -1,0 +1,93 @@
+# Experiment 9: Configure DHCP and Email (SMTP/POP3) Using Cisco Packet Tracer
+
+
+## Devices Required
+- 1 Server
+- 1 Switch (2960)
+- 2 PCs
+
+```
+
+## Configuration
+
+Open Server → Desktop → IP Configuration.
+
+| Setting | Value |
+|---|---|
+| IP Address | 192.168.1.2 |
+| Subnet Mask | 255.255.255.0 |
+
+
+### Step 3: Configure DHCP
+Open Server → Services → DHCP.
+
+Turn DHCP ON and configure:
+
+| Setting | Value |
+|---|---|
+| Pool Name | LAN_POOL |
+| Default Gateway | 192.168.1.1 |
+| DNS Server | 192.168.1.2 |
+| Start IP Address | 192.168.1.10 |
+
+
+Click Add or Save.
+
+### Step 4: Configure PCs
+For both PCs:
+1. Open Desktop → IP Configuration.
+2. Select DHCP.
+
+
+### Step 6: Create Email Accounts
+Create these two accounts on the server:
+
+| Username | Password | Email Address |
+|---|---|---|
+| student1 | 123 | student1@college.com |
+| student2 | 123 | student2@college.com |
+
+Click Add after entering each account.
+
+### Step 7: Configure Email on PC0
+
+Open PC0 → Desktop → Email.
+
+| Setting | Value |
+|---|---|
+| Your Name | Student 1 |
+| Email Address | student1@college.com |
+| Incoming Mail Server | 192.168.1.2 |
+| Outgoing Mail Server | 192.168.1.2 |
+| Username | student1 |
+| Password | 123 |
+
+Click Save.
+
+### Step 8: Configure Email on PC1
+
+Open PC1 → Desktop → Email.
+
+| Setting | Value |
+|---|---|
+| Your Name | Student 2 |
+| Email Address | student2@college.com |
+| Incoming Mail Server | 192.168.1.2 |
+| Outgoing Mail Server | 192.168.1.2 |
+| Username | student2 |
+| Password | 123 |
+
+Click Save.
+
+### Step 9: Send and Receive Email
+1. Open PC0 → Desktop → Email.
+2. Compose a new email.
+3. Enter recipient: `student2@college.com`.
+4. Subject: `Test Email`.
+5. Message: `Testing SMTP and POP3 services in Packet Tracer.`
+6. Click Send.
+7. Open PC1 → Desktop → Email.
+8. Click Receive.
+9. Verify that the email is received.
+
+
